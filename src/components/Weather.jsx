@@ -58,6 +58,7 @@ const Weather = () => {
     <div className="py-10 px-4 max-w-6xl mx-auto text-white">
       <h2 className="text-4xl font-bold mb-5 text-center">🌦️ Previsão do Tempo</h2>
 
+      {/* Campo de busca */}
       <div className="mb-8 max-w-md mx-auto flex gap-3">
         <input
           type="text"
@@ -83,9 +84,17 @@ const Weather = () => {
       )}
 
       <div className="grid gap-6 md:grid-cols-6 auto-rows-[minmax(150px,auto)]">
-        {weather && <WeatherCard weather={weather} />}
-        {airQuality && <AirQualityCard airQuality={airQuality} />}
-        {forecast && (
+        {loading && (
+          <>
+            <div className="md:col-span-3 bg-gray-700 animate-pulse rounded-2xl h-48"></div>
+            <div className="md:col-span-3 bg-gray-700 animate-pulse rounded-2xl h-48"></div>
+            <div className="md:col-span-6 bg-gray-700 animate-pulse rounded-2xl h-64"></div>
+          </>
+        )}
+
+        {!loading && weather && <WeatherCard weather={weather} />}
+        {!loading && airQuality && <AirQualityCard airQuality={airQuality} />}
+        {!loading && forecast && (
           <div className="md:col-span-6 bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg overflow-hidden">
             <h3 className="text-2xl font-semibold mb-4 mx-auto text-center">📅 Previsão 5 dias</h3>
             <div className="flex gap-4 overflow-x-auto pb-4">
