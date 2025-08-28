@@ -50,3 +50,5 @@ docker run -p 8080:80 weather-app
 ```
 http://localhost:8080
 ```
+## Layout
+<img width="1250" height="870" alt="image" src="https://github.com/user-attachments/assets/96559dfe-96f1-4fef-b3de-e1ff49ac2200" />
